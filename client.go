@@ -35,6 +35,10 @@ import (
 
 // Marathon is the interface to the marathon API
 type Marathon interface {
+	// -- GENERIC API ACCESS ---
+
+	ApiPost(path string, post, result interface{}) error
+
 	// -- APPLICATIONS ---
 
 	// get a listing of the application ids
@@ -317,6 +321,10 @@ func (r *marathonClient) apiGet(path string, post, result interface{}) error {
 
 func (r *marathonClient) apiPut(path string, post, result interface{}) error {
 	return r.apiCall("PUT", path, post, result)
+}
+
+func (r *marathonClient) ApiPost(path string, post, result interface{}) error {
+	return r.ApiPost(path, post, result)
 }
 
 func (r *marathonClient) apiPost(path string, post, result interface{}) error {
