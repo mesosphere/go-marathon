@@ -324,10 +324,6 @@ func (r *marathonClient) apiPut(path string, post, result interface{}) error {
 }
 
 func (r *marathonClient) ApiPost(path string, post, result interface{}) error {
-	return r.apiPost(path, post, result)
-}
-
-func (r *marathonClient) apiPost(path string, post, result interface{}) error {
 	return r.apiCall("POST", path, post, result)
 }
 
