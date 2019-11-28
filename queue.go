@@ -29,10 +29,11 @@ type Queue struct {
 type Item struct {
 	Count                  int                    `json:"count"`
 	Delay                  Delay                  `json:"delay"`
-	Application            Application            `json:"app"`
+	Application            *Application           `json:"app"`
+	Pod                    *Pod                   `json:"pod"`
 	Role                   string                 `json:"role"`
 	Since                  string                 `json:"since"`
-	ProcessedOffersSummary ProcessedOffersSummary `json:"processedOfferSummary"`
+	ProcessedOffersSummary ProcessedOffersSummary `json:"processedOffersSummary"`
 	LastUnusedOffers       []UnusedOffer          `json:"lastUnusedOffers,omitempty"`
 }
 
@@ -44,7 +45,7 @@ type Delay struct {
 
 // ProcessedOffersSummary contains statistics for processed offers.
 type ProcessedOffersSummary struct {
-	ProcessedOffersCount       int32               `json:"proccesedOffersCount"`
+	ProcessedOffersCount       int32               `json:"processedOffersCount"`
 	UnusedOffersCount          int32               `json:"unusedOffersCount"`
 	LastUnusedOfferAt          *string             `json:"lastUnusedOfferAt,omitempty"`
 	LastUsedOfferAt            *string             `json:"lastUsedOfferAt,omitempty"`
